@@ -98,6 +98,20 @@ export function getBabelLoader(isServer: boolean, babelOptions?: {}): Loader {
   };
 }
 
+export function getSvgLoader(
+  isServer: boolean,
+  cacheOptions?: {},
+): Loader | null {
+  if (env.ci || env.test) {
+    return null;
+  }
+
+  return {
+    loader: require.resolve('svg-url-loader'),
+    options: {},
+  };
+}
+
 /**
  * Helper function to modify webpack config
  * @param {Object | Function} configureWebpack a webpack config or a function to modify config
@@ -119,6 +133,7 @@ export function applyConfigureWebpack(
     getStyleLoaders,
     getCacheLoader,
     getBabelLoader,
+    getSvgLoader,
   };
   if (typeof configureWebpack === 'function') {
     const res = configureWebpack(config, isServer, utils);

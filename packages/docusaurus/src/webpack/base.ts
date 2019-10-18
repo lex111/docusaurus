@@ -13,7 +13,12 @@ import TerserPlugin from 'terser-webpack-plugin';
 import {Configuration, Loader} from 'webpack';
 
 import {Props} from '@docusaurus/types';
-import {getBabelLoader, getCacheLoader, getStyleLoaders} from './utils';
+import {
+  getBabelLoader,
+  getCacheLoader,
+  getStyleLoaders,
+  getSvgLoader,
+} from './utils';
 
 const CSS_REGEX = /\.css$/;
 const CSS_MODULE_REGEX = /\.module\.css$/;
@@ -127,6 +132,10 @@ export function createBaseConfig(
             sourceMap: !isProd,
             onlyLocals: isServer,
           }),
+        },
+        {
+          test: /\.svg/,
+          use: [getSvgLoader(isServer)].filter(Boolean) as Loader[],
         },
       ],
     },
