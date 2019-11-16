@@ -12,13 +12,13 @@ import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import {dispatch} from '@docusaurus/useEventBus';
 
 import SearchBar from '@theme/SearchBar';
 
 import classnames from 'classnames';
 
 import useTheme from '@theme/hooks/useTheme';
+import {dispatch} from '@theme/hooks/useEventBus';
 
 import styles from './styles.module.css';
 
