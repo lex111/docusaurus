@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useState, useEffect} from 'react';
 import Link from '@docusaurus/Link';
 import Head from '@docusaurus/Head';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -50,6 +50,14 @@ function Navbar() {
   const {baseUrl, themeConfig = {}} = siteConfig;
   const {navbar = {}, disableDarkMode = false} = themeConfig;
   const {title, logo = {}, links = []} = navbar;
+
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    if (!isClient) {
+      setIsClient(true);
+    }
+  }, []);
 
   const showSidebar = useCallback(() => {
     setSidebarShown(true);
@@ -125,6 +133,7 @@ function Navbar() {
               ))}
             {!disableDarkMode && (
               <Toggle
+                show={isClient}
                 className={styles.displayOnlyInLargeViewport}
                 aria-label="Dark mode toggle"
                 checked={theme === 'dark'}
