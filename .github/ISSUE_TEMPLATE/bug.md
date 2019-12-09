@@ -1,6 +1,7 @@
 ---
 name: 🐛 Bug Report
 about: Submit a bug report to help us improve
+labels: 'bug, needs triage'
 ---
 
 ## 🐛 Bug Report
@@ -15,9 +16,9 @@ about: Submit a bug report to help us improve
 
 (Write your steps here:)
 
-1.
-1.
-1.
+1. Step 1...
+1. Step 2...
+1. Step 3...
 
 ## Expected behavior
 

@@ -27,20 +27,15 @@ function BlogTagsPostPage(props) {
             </h1>
             <Link href={allTagsPath}>View All Tags</Link>
             <div className="margin-vert--xl">
-              {items.map(
-                ({content: BlogPostContent, metadata: blogPostMetadata}) => (
-                  <div
-                    className="margin-vert--xl"
-                    key={blogPostMetadata.permalink}>
-                    <BlogPostItem
-                      frontMatter={BlogPostContent.frontMatter}
-                      metadata={blogPostMetadata}
-                      truncated>
-                      <BlogPostContent />
-                    </BlogPostItem>
-                  </div>
-                ),
-              )}
+              {items.map(({content: BlogPostContent}) => (
+                <BlogPostItem
+                  key={BlogPostContent.metadata.permalink}
+                  frontMatter={BlogPostContent.frontMatter}
+                  metadata={BlogPostContent.metadata}
+                  truncated>
+                  <BlogPostContent />
+                </BlogPostItem>
+              ))}
             </div>
           </div>
         </div>

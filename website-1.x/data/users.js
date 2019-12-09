@@ -106,6 +106,13 @@ module.exports = [
     pinned: false,
   },
   {
+    caption: 'Bottender',
+    image: '/img/users/bottender.png',
+    infoLink: 'https://bottender.js.org/',
+    fbOpenSource: false,
+    pinned: false,
+  },
+  {
     caption: 'Bowler',
     image: '/img/users/bowler.svg',
     infoLink: 'https://pybowler.io/',
@@ -127,6 +134,13 @@ module.exports = [
     pinned: false,
   },
   {
+    caption: 'Channelize.io',
+    image: '/img/users/channelize.png',
+    infoLink: 'https://docs.channelize.io/',
+    fbOpenSource: false,
+    pinned: false,
+  },
+  {
     caption: 'CodeceptJS',
     image: '/img/users/codecept.png',
     infoLink: 'https://codecept.io/',
@@ -137,6 +151,13 @@ module.exports = [
     caption: 'Cohesity',
     image: '/img/users/cohesity.png',
     infoLink: 'https://developer.cohesity.com',
+    fbOpenSource: false,
+    pinned: false,
+  },
+  {
+    caption: 'Collective',
+    image: '/img/users/collective.png',
+    infoLink: 'https://collective.gg/',
     fbOpenSource: false,
     pinned: false,
   },

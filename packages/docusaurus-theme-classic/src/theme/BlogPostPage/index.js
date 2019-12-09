@@ -12,15 +12,18 @@ import BlogPostItem from '@theme/BlogPostItem';
 import BlogPostPaginator from '@theme/BlogPostPaginator';
 
 function BlogPostPage(props) {
-  const {content: BlogPostContents, metadata} = props;
-  const {frontMatter} = BlogPostContents;
+  const {content: BlogPostContents} = props;
+  const {frontMatter, metadata} = BlogPostContents;
   return (
     <Layout title={metadata.title} description={metadata.description}>
       {BlogPostContents && (
         <div className="container margin-vert--xl">
           <div className="row">
             <div className="col col--8 col--offset-2">
-              <BlogPostItem frontMatter={frontMatter} metadata={metadata}>
+              <BlogPostItem
+                frontMatter={frontMatter}
+                metadata={metadata}
+                isBlogPostPage>
                 <BlogPostContents />
               </BlogPostItem>
               {(metadata.nextItem || metadata.prevItem) && (
