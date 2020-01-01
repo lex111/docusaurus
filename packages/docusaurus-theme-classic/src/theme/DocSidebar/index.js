@@ -115,6 +115,7 @@ function DocSidebar(props) {
     location,
     sidebar: currentSidebar,
     sidebarCollapsible,
+    onToggle,
   } = props;
 
   if (!currentSidebar) {
@@ -142,7 +143,7 @@ function DocSidebar(props) {
         {title != null && <strong>{title}</strong>}
       </div>
       <div
-        className={classnames('menu', 'menu--responsive', {
+        className={classnames('menu', 'menu--responsive', styles.menuEnhanced, {
           'menu--show': showResponsiveSidebar,
         })}>
         <button
@@ -192,6 +193,12 @@ function DocSidebar(props) {
             />
           ))}
         </ul>
+      </div>
+
+      <div className={styles.switchSidebarButton}>
+        <button className="button button--secondary" onClick={props.onToggle}>
+          Collapse sidebar
+        </button>
       </div>
     </div>
   );

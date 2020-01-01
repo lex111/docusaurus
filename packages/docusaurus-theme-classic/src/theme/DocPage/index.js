@@ -5,8 +5,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, {useState, useCallback, useRef} from 'react';
 import {MDXProvider} from '@mdx-js/react';
+import classnames from 'classnames';
 
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import renderRoutes from '@docusaurus/renderRoutes';
@@ -28,6 +29,20 @@ function DocPage(props) {
   const sidebar = permalinkToSidebar[location.pathname.replace(/\/$/, '')];
   const {siteConfig: {themeConfig = {}} = {}} = useDocusaurusContext();
   const {sidebarCollapsible = true} = themeConfig;
+  const [collapsedDocSidebar, setCollapsedDocSidebar] = useState(false);
+
+  const toggleDocSidebar = useCallback(() => {
+    setCollapsedDocSidebar(!collapsedDocSidebar);
+  });
+  const docSidebarRef = useRef();
+
+  // useEffect(() => {
+  //   const docSidebar = docSidebarRef.current;
+
+  //   const enableHoverEffect
+
+  //   docSidebar.addEventListener('transitionend', enableHoverEffect);
+  // });
 
   if (!matchingRouteExist(route.routes, location.pathname)) {
     return <NotFound {...props} />;
@@ -37,12 +52,18 @@ function DocPage(props) {
     <Layout version={version}>
       <div className={styles.docPage}>
         {sidebar && (
-          <div className={styles.docSidebarContainer}>
+          <div
+            ref={docSidebarRef}
+            className={classnames(styles.docSidebarContainer, {
+              [styles.docSidebarContainerCollapsed]: collapsedDocSidebar,
+            })}
+            onClick={toggleDocSidebar}>
             <DocSidebar
               docsSidebars={docsSidebars}
               location={location}
               sidebar={sidebar}
               sidebarCollapsible={sidebarCollapsible}
+              onToggle={toggleDocSidebar}
             />
           </div>
         )}
