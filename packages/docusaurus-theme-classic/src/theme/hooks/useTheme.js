@@ -7,7 +7,12 @@
 
 import React from 'react';
 
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
 const useTheme = () => {
+  const {
+    siteConfig: {themeConfig: {disableDarkMode}} = {},
+  } = useDocusaurusContext();
   const [theme, setTheme] = React.useState(
     typeof document !== 'undefined'
       ? document.documentElement.getAttribute('data-theme')
@@ -20,6 +25,10 @@ const useTheme = () => {
 
   React.useEffect(() => {
     try {
+      if (disableDarkMode) {
+        return;
+      }
+
       const localStorageTheme = localStorage.getItem('theme');
       if (localStorageTheme !== null) {
         setTheme(localStorageTheme);
