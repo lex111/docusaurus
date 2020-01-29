@@ -5,6 +5,22 @@ title: Blog
 
 ## Initial setup
 
+```rust
+fn main() {
+    // Statements here are executed when the compiled binary is called
+
+    // Print text to the console
+    println!("Hello World!");
+}
+```
+
+| column 1 | column 2 | column 3 | column 4 | column 5 | column 6 | column 7 | column 8 | column 9 | column 9 |
+| :-: | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| value | value | value | value | value | value | value | value | value | value |
+| value | value | value | value | value | value | value | value | value | value |
+
+ss
+
 To setup your site's blog, start by creating a `blog` directory.
 
 Then, add a navbar link to your blog within `docusaurus.config.js`:

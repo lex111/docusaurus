@@ -76,14 +76,16 @@ export default async function render(locals) {
     },
   );
 
+  return renderedHtml;
+
   // minify html with https://github.com/DanielRuf/html-minifier-terser
-  return minify(renderedHtml, {
-    removeComments: true,
-    removeRedundantAttributes: true,
-    removeEmptyAttributes: true,
-    removeScriptTypeAttributes: true,
-    removeStyleLinkTypeAttributes: true,
-    useShortDoctype: true,
-    minifyJS: true,
-  });
+  // return minify(renderedHtml, {
+  //   removeComments: true,
+  //   removeRedundantAttributes: true,
+  //   removeEmptyAttributes: true,
+  //   removeScriptTypeAttributes: true,
+  //   removeStyleLinkTypeAttributes: true,
+  //   useShortDoctype: true,
+  //   minifyJS: true,
+  // });
 }

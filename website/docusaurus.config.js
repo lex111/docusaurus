@@ -12,7 +12,7 @@ module.exports = {
   tagline: 'Build optimized websites quickly, focus on your content',
   organizationName: 'facebook',
   projectName: 'docusaurus',
-  baseUrl: '/',
+  baseUrl: '/lala/',
   url: 'https://v2.docusaurus.io',
   favicon: 'img/docusaurus.ico',
   customFields: {
@@ -62,6 +62,7 @@ module.exports = {
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
+      additionalLanguages: ['rust'],
     },
     image: 'img/docusaurus.png',
     gtag: {
@@ -75,7 +76,7 @@ module.exports = {
       },
     },
     navbar: {
-      hideOnScroll: true,
+      // hideOnScroll: true,
       title: 'Docusaurus',
       logo: {
         alt: 'Docusaurus Logo',

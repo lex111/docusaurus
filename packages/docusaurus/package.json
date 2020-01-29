@@ -29,7 +29,8 @@
     "url": "https://github.com/facebook/docusaurus/issues"
   },
   "devDependencies": {
-    "@docusaurus/types": "^2.0.0-alpha.40"
+    "@docusaurus/types": "^2.0.0-alpha.40",
+    "file-loader": "^5.0.2"
   },
   "dependencies": {
     "@babel/core": "^7.7.4",

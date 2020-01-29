@@ -37,6 +37,8 @@ export function createBaseConfig(
 ): Configuration {
   const {outDir, siteDir, baseUrl, generatedFilesDir, routesPaths} = props;
 
+  console.log(path.resolve(siteDir, 'static'));
+
   const totalPages = routesPaths.length;
   const isProd = process.env.NODE_ENV === 'production';
   return {
@@ -56,7 +58,16 @@ export function createBaseConfig(
     },
     devtool: isProd ? false : 'cheap-module-eval-source-map',
     resolve: {
-      extensions: ['.wasm', '.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
+      extensions: [
+        '.wasm',
+        '.mjs',
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.json',
+        '.css',
+      ],
       symlinks: true,
       alias: {
         // https://stackoverflow.com/a/55433680/6072730
@@ -64,6 +75,7 @@ export function createBaseConfig(
         '@site': siteDir,
         '@generated': generatedFilesDir,
         '@docusaurus': path.resolve(__dirname, '../client/exports'),
+        '@static': path.resolve(siteDir, 'static'),
       },
       // This allows you to set a fallback for where Webpack should look for modules.
       // We want `@docusaurus/core` own dependencies/`node_modules` to "win" if there is conflict
@@ -175,6 +187,14 @@ export function createBaseConfig(
             sourceMap: !isProd,
             onlyLocals: isServer,
           }),
+        },
+        {
+          test: /\.(jpe?g|gif|png|svg)$/,
+          use: [
+            {
+              loader: 'file-loader',
+            },
+          ],
         },
       ],
     },
