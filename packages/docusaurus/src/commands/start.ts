@@ -125,6 +125,8 @@ export async function start(
     clientLogLevel: 'error',
     hot: true,
     hotOnly: cliOptions.hotOnly,
+    transportMode: 'ws',
+    injectClient: false,
     quiet: true,
     headers: {
       'access-control-allow-origin': '*',

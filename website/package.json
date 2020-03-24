@@ -15,8 +15,8 @@
     "classnames": "^2.2.6",
     "color": "^3.1.2",
     "npm-to-yarn": "^1.0.0-2",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "browserslist": {
     "production": [
