@@ -7,8 +7,7 @@ Docusaurus provides a set of scripts to help you generate, serve, and deploy you
 
 Once your website is generated, your website package will contain the Docusaurus scripts that you may invoke with your package manager:
 
-```json
-// package.json
+```json title="package.json"
 {
   // ...
   "scripts": {
@@ -49,6 +48,12 @@ Builds and serves the static site with [Webpack Dev Server](https://webpack.js.o
 | `--host` | `localhost` | Specify a host to use. E.g., if you want your server to be accessible externally, you can use `--host 0.0.0.0` |
 | `--hot-only` | `false` | Enables Hot Module Replacement without page refresh as fallback in case of build failures. More information [here](https://webpack.js.org/configuration/dev-server/#devserverhotonly). |
 | `--no-open` | `false` | Do not open automatically the page in the browser. |
+
+:::important
+
+Please note that some functionality (for example, anchor links) will not work in dev server. When building the website, all the functionality will work as expected.
+
+:::
 
 ### `docusaurus build`
 
