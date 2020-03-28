@@ -19,17 +19,17 @@ module.exports = {
     description:
       'An optimized site generator in React. Docusaurus helps you to move fast and write content. Build documentation websites, blogs, marketing pages, and more.',
   },
-  themes: ['@docusaurus/theme-live-codeblock'],
+  // themes: ['@docusaurus/theme-live-codeblock'],
   plugins: [
-    [
-      '@docusaurus/plugin-ideal-image',
-      {
-        quality: 70,
-        max: 1030, // max resized image's size.
-        min: 640, // min resized image's size. if original is lower, use that size.
-        steps: 2, // the max number of images generated between min and max (inclusive)
-      },
-    ],
+    // [
+    //   '@docusaurus/plugin-ideal-image',
+    //   {
+    //     quality: 70,
+    //     max: 1030, // max resized image's size.
+    //     min: 640, // min resized image's size. if original is lower, use that size.
+    //     steps: 2, // the max number of images generated between min and max (inclusive)
+    //   },
+    // ],
   ],
   presets: [
     [
@@ -44,14 +44,14 @@ module.exports = {
           showLastUpdateTime: true,
           remarkPlugins: [require('./src/plugins/remark-npm2yarn')],
         },
-        blog: {
-          path: '../website-1.x/blog',
-          postsPerPage: 3,
-          feedOptions: {
-            type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
-          },
-        },
+        // blog: {
+        //   path: '../website-1.x/blog',
+        //   postsPerPage: 3,
+        //   feedOptions: {
+        //     type: 'all',
+        //     copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+        //   },
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -85,7 +85,7 @@ module.exports = {
       links: [
         {
           to: 'versions',
-          label: `${versions[0].substr(6)}`,
+          // label: `${versions[0].substr(6)}`,
           position: 'left',
           style: {
             whiteSpace: 'nowrap',

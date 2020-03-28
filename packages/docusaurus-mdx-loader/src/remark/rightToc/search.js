@@ -42,12 +42,20 @@ function search(node) {
   const onHeading = (child, index, parent) => {
     const value = toString(child);
 
+    // console.log('CHILD', child);
+
     if (parent !== node || !value || child.depth > 3 || child.depth < 2) {
       return;
     }
 
+    // const isJsx = child.type == 'jsx';
+    // eval('`${child.value.match(/<([^s/>]+)+/)[1]}.rightToc}`')
+    // `\`$\{${child.value.match(/<([^\s\/>]+)+/)[1]}.rightToc}\``,
+
     const entry = {
       value: toValue(child),
+      // ? () => require(`${child.value.match(/<([^\s\/>]+)+/)[1]}`).rightToc
+      // : toValue(child),
       id: child.data.id,
       children: [],
     };
@@ -56,6 +64,11 @@ function search(node) {
       headings.push(entry);
       current += 1;
       currentDepth = child.depth;
+
+      // if (!isJsx) {
+      //   current += 1;
+      //   currentDepth = child.depth;
+      // }
     } else {
       headings[current].children.push(entry);
     }

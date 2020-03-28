@@ -10,7 +10,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-import Image from '@theme/IdealImage';
+// import Image from '@theme/IdealImage';
 import Layout from '@theme/Layout';
 
 import classnames from 'classnames';
@@ -19,7 +19,7 @@ import styles from './styles.module.css';
 
 const QUOTES = [
   {
-    thumbnail: require('../data/quotes/christopher-chedeau.jpg'),
+    // thumbnail: require('../data/quotes/christopher-chedeau.jpg'),
     name: 'Christopher "vjeux" Chedeau',
     title: 'Lead Prettier Developer',
     text: (
@@ -33,7 +33,7 @@ const QUOTES = [
     ),
   },
   {
-    thumbnail: require('../data/quotes/hector-ramos.jpg'),
+    // thumbnail: require('../data/quotes/hector-ramos.jpg'),
     name: 'Hector Ramos',
     title: 'Lead React Native Advocate',
     text: (
@@ -46,7 +46,7 @@ const QUOTES = [
     ),
   },
   {
-    thumbnail: require('../data/quotes/ricky-vetter.jpg'),
+    // thumbnail: require('../data/quotes/ricky-vetter.jpg'),
     name: 'Ricky Vetter',
     title: 'ReasonReact Developer',
     text: (
@@ -193,12 +193,12 @@ function Home() {
             {QUOTES.map(quote => (
               <div className="col" key={quote.name}>
                 <div className="avatar avatar--vertical margin-bottom--sm">
-                  <Image
+                  {/* <Image
                     alt={quote.name}
                     className="avatar__photo avatar__photo--xl"
                     img={quote.thumbnail}
                     style={{overflow: 'hidden'}}
-                  />
+                  /> */}
                   <div className="avatar__intro padding-top--sm">
                     <h4 className="avatar__name">{quote.name}</h4>
                     <small className="avatar__subtitle">{quote.title}</small>

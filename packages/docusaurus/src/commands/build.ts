@@ -25,6 +25,8 @@ function compile(config: Configuration[]): Promise<any> {
   return new Promise((resolve, reject) => {
     const compiler = webpack(config);
     compiler.run((err, stats) => {
+      // process.stdout.write(stats.toString() + '\n');
+
       if (err) {
         reject(err);
       }
@@ -109,6 +111,12 @@ export async function build(
       true,
     );
   });
+
+  console.log(JSON.stringify(clientConfig, null, 4));
+
+  console.log('------');
+
+  console.log(JSON.stringify(serverConfig, null, 4));
 
   // Make sure generated client-manifest is cleaned first so we don't reuse
   // the one from previous builds.

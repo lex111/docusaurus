@@ -36,12 +36,18 @@ const getOrCreateExistingTargetIndex = (children, name) => {
   let importsIndex = -1;
   let targetIndex = -1;
 
+  // console.table(children);
+
   children.forEach((child, index) => {
     if (isImport(child)) {
       importsIndex = index;
     } else if (isExport(child) && isTarget(child, name)) {
       targetIndex = index;
     }
+
+    // child.children.forEach((child1, index) => {
+    //   console.log('CHILD', child1);
+    // });
   });
 
   if (targetIndex === -1) {
@@ -61,7 +67,9 @@ const getOrCreateExistingTargetIndex = (children, name) => {
 const plugin = (options = {}) => {
   const name = options.name || 'rightToc';
 
-  const transformer = node => {
+  const transformer = (node, file) => {
+    console.log(file.history);
+
     const headings = search(node);
     const {children} = node;
     const targetIndex = getOrCreateExistingTargetIndex(children, name);

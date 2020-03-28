@@ -7,7 +7,7 @@
 
 import React, {useEffect} from 'react';
 
-import Image from '@theme/IdealImage';
+// import Image from '@theme/IdealImage';
 import Layout from '@theme/Layout';
 
 import classnames from 'classnames';
@@ -31,7 +31,7 @@ function Showcase() {
             <div key={user.title} className="col col--4 margin-bottom--lg">
               <div className={classnames('card', styles.showcaseUser)}>
                 <div className="card__image">
-                  <Image img={user.preview} alt={user.title} />
+                  {/* <Image img={user.preview} alt={user.title} /> */}
                 </div>
                 <div className="card__body">
                   <div className="avatar">
