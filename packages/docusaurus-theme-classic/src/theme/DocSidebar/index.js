@@ -10,6 +10,9 @@ import classnames from 'classnames';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
 import useLogo from '@theme/hooks/useLogo';
+import useUserPreferencesContext from '@theme/hooks/useUserPreferencesContext';
+import useScrollPosition from '@theme/hooks/useScrollPosition';
+
 import Link from '@docusaurus/Link';
 import isInternalUrl from '@docusaurus/isInternalUrl';
 
@@ -114,21 +117,26 @@ function mutateSidebarCollapsingState(item, path) {
 }
 
 function DocSidebar(props) {
-  const [showResponsiveSidebar, setShowResponsiveSidebar] = useState(false);
-  const {
-    siteConfig: {
-      themeConfig: {navbar: {title, hideOnScroll = false} = {}},
-    } = {},
-    isClient,
-  } = useDocusaurusContext();
-  const {logoLink, logoLinkProps, logoImageUrl, logoAlt} = useLogo();
-
   const {
     docsSidebars,
     path,
     sidebar: currentSidebar,
     sidebarCollapsible,
+    onToggle,
   } = props;
+  const {
+    siteConfig: {
+      themeConfig: {
+        navbar: {title, hideOnScroll = false} = {},
+        collapsibleSidebar = false,
+      },
+    } = {},
+    isClient,
+  } = useDocusaurusContext();
+  const [showResponsiveSidebar, setShowResponsiveSidebar] = useState(false);
+  const {logoLink, logoLinkProps, logoImageUrl, logoAlt} = useLogo();
+  const {isAnnouncementBarClosed} = useUserPreferencesContext();
+  const {scrollY} = useScrollPosition();
 
   useLockBodyScroll(showResponsiveSidebar);
 
@@ -151,7 +159,10 @@ function DocSidebar(props) {
   }
 
   return (
-    <div className={styles.sidebar}>
+    <div
+      className={classnames(styles.sidebar, {
+        [styles.sidebarWithHideableNavbar]: hideOnScroll,
+      })}>
       {hideOnScroll && (
         <Link className={styles.sidebarLogo} to={logoLink} {...logoLinkProps}>
           {logoImageUrl != null && (
@@ -163,6 +174,8 @@ function DocSidebar(props) {
       <div
         className={classnames('menu', 'menu--responsive', styles.menu, {
           'menu--show': showResponsiveSidebar,
+          [styles.menuWithAnnouncementBar]:
+            !isAnnouncementBarClosed && scrollY === 0,
         })}>
         <button
           aria-label={showResponsiveSidebar ? 'Close Menu' : 'Open Menu'}
@@ -214,6 +227,18 @@ function DocSidebar(props) {
           ))}
         </ul>
       </div>
+
+      {collapsibleSidebar && (
+        <button
+          type="button"
+          className={classnames(
+            'button button--secondary',
+            styles.toggleSidebarButton,
+          )}
+          onClick={onToggle}>
+          Collapse sidebar
+        </button>
+      )}
     </div>
   );
 }

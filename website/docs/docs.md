@@ -51,6 +51,20 @@ module.exports = {
 };
 ```
 
+### Collapsible sidebar
+
+Using the enabled `themeConfig.collapsibleSidebar` option, you can make the entire sidebar collapsed, allowing you to better focus your users on the content. This is especially useful when using tables.
+
+```js {4} title="docusaurus.config.js"
+module.exports = {
+  // ...
+  themeConfig: {
+    collapsibleSidebar: true,
+    // ...
+  },
+};
+```
+
 ### Sidebar object
 
 A sidebar object is defined like this.
@@ -250,7 +264,7 @@ For sites with a sizable amount of content, we support the option to expand/coll
 module.exports = {
   // ...
   themeConfig: {
-    sidebarCollapsible: false,
+    sidebarCollapsible: false, // TODO: rename to `collapsibleSidebarItems`
     // ...
   },
 };

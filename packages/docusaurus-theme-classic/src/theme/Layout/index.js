@@ -12,7 +12,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 import ThemeProvider from '@theme/ThemeProvider';
-import TabGroupChoiceProvider from '@theme/TabGroupChoiceProvider';
+import UserPreferencesProvider from '@theme/UserPreferencesProvider';
 import AnnouncementBar from '@theme/AnnouncementBar';
 import Navbar from '@theme/Navbar';
 import Footer from '@theme/Footer';
@@ -49,7 +49,7 @@ function Layout(props) {
 
   return (
     <ThemeProvider>
-      <TabGroupChoiceProvider>
+      <UserPreferencesProvider>
         <Head>
           {/* TODO: Do not assume that it is in english language */}
           <html lang="en" />
@@ -81,7 +81,7 @@ function Layout(props) {
         <Navbar />
         <div className="main-wrapper">{children}</div>
         {!noFooter && <Footer />}
-      </TabGroupChoiceProvider>
+      </UserPreferencesProvider>
     </ThemeProvider>
   );
 }
