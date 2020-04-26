@@ -205,7 +205,11 @@ describe('simple website', () => {
     expect(baseMetadata.permalinkToSidebar).toEqual(permalinkToSidebar);
 
     // Sort the route config like in src/server/plugins/index.ts for consistent snapshot ordering
-    sortConfig(routeConfigs);
+    // sortConfig(routeConfigs);
+
+    console.log(JSON.stringify(routeConfigs, null, 4));
+
+    console.log(JSON.stringify(sortConfig(routeConfigs), null, 4));
 
     expect(routeConfigs).not.toEqual([]);
     expect(routeConfigs).toMatchSnapshot();

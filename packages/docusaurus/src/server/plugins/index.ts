@@ -17,10 +17,10 @@ import {
 } from '@docusaurus/types';
 import {initPlugins} from './init';
 
-export function sortConfig(routeConfigs: RouteConfig[]) {
+export function sortConfig(routeConfigs: RouteConfig[]): RouteConfig[] {
   // Sort the route config. This ensures that route with nested
   // routes is always placed last.
-  routeConfigs.sort((a, b) => {
+  return routeConfigs.sort((a, b) => {
     if (a.routes && !b.routes) {
       return 1;
     }
