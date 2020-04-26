@@ -20,7 +20,7 @@ import {initPlugins} from './init';
 export function sortConfig(routeConfigs: RouteConfig[]): RouteConfig[] {
   // Sort the route config. This ensures that route with nested
   // routes is always placed last.
-  return routeConfigs.sort((a, b) => {
+  routeConfigs.sort((a, b) => {
     if (a.routes && !b.routes) {
       return 1;
     }
@@ -39,6 +39,12 @@ export function sortConfig(routeConfigs: RouteConfig[]): RouteConfig[] {
     }
 
     return a.path > b.path ? 1 : b.path > a.path ? -1 : 0;
+  });
+
+  routeConfigs.forEach((routeConfig) => {
+    routeConfig.routes?.sort((a, b) => {
+      return a.path > b.path ? 1 : b.path > a.path ? -1 : 0;
+    });
   });
 }
 
