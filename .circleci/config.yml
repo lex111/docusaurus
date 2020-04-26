@@ -27,7 +27,7 @@ defaults: &defaults
   working_directory: ~/docusaurus
   docker:
     - image: circleci/node:10
-  resource_class: large
+  # resource_class: large
 
 version: 2
 jobs:
