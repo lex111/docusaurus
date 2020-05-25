@@ -11,6 +11,8 @@ import usePrismTheme from '@theme/hooks/usePrismTheme';
 import Playground from '@theme/Playground';
 import CodeBlock from '@theme-init/CodeBlock';
 
+import * as ExtraScope from '@theme/extraLiveEditorScope';
+
 const withLiveEditor = (Component) => {
   const WrappedComponent = (props) => {
     const {isClient} = useDocusaurusContext();
@@ -20,7 +22,7 @@ const withLiveEditor = (Component) => {
       return (
         <Playground
           key={isClient}
-          scope={{...React}}
+          scope={{...React, ...ExtraScope}}
           theme={prismTheme}
           {...props}
         />

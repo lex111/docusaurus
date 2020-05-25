@@ -735,6 +735,20 @@ function Clock(props) {
 }
 ```
 
+#### Extending default scope of interactive editor
+
+By default all `React` object properties are injected, so using something else in the interactive editor will result in an undefined error.
+
+To be able to use any React components in the interactive code editor under `src/theme` directory create new file called `extraLiveEditorScope.js` in which to export the necessary React components, like so:
+
+```js
+import CustomComponent from '@site/src/components/CustomComponent';
+
+export {CustomComponent};
+```
+
+After that, this component will be available within the interactive editor.
+
 ### Multi-language support code blocks
 
 With MDX, you can easily create interactive components within your documentation, for example, to display code in multiple programming languages and switching between them using a tabs component.
