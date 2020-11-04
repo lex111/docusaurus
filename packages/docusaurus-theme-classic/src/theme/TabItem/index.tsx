@@ -8,8 +8,8 @@
 import React from 'react';
 import type {Props} from '@theme/TabItem';
 
-function TabItem(props: Props): JSX.Element {
-  return <div>{props.children}</div>;
+function TabItem({children, hidden}: Props): JSX.Element {
+  return <div {...{hidden}}>{children}</div>;
 }
 
 export default TabItem;
