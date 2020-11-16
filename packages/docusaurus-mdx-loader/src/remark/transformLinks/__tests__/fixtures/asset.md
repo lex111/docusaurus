@@ -27,3 +27,5 @@
 [![Clickable Docusaurus logo](./static/staticAssetImage.png)](/staticAssetImage.png)
 
 [<span style={{color: "red"}}>Stylized link to asset file</span>](./asset.pdf)
+
+Download [测试.pdf](./测试.pdf)
