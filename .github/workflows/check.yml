@@ -1,0 +1,18 @@
+name: Simple Asset Size Reporter
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2-beta
+      with:
+        fetch-depth: 0
+    - uses: chrysanthos/simple-asset-size-reporter@1.0.0
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        files: '["website/build/main*js", "website/build/styles*css", "website/build/index.html", "website/build/blog/**/introducing-docusaurus/*", "website/build/docs/introduction/index.html"]'
+        with-same: 'true'
+        build-assets: 'yarn build'
