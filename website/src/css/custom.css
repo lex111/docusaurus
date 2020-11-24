@@ -114,7 +114,7 @@ html[data-theme='dark'] .DocSearch {
   );
 }
 
-
+@media (max-width: 1200px) {
   /* Header */
   .top-header,
   footer {
